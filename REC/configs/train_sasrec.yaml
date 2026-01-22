@@ -1,0 +1,59 @@
+seed: 42
+gpu: "0"
+device: "cuda"
+train: 1
+accuracy_weight: 0.0
+diversity_weight: 1.0
+
+data:
+  dataset: "MovieLens_1M"
+  path: "./REC/corpus"
+  sep: "\t"
+  regenerate: false
+
+model:
+  name: "SASRec"
+  emb_size: 64
+  num_layers: 1
+  num_heads: 4
+  hidden_size: 100
+  dropout: 0.2
+  final_act: "tanh"
+  history_max: 20
+  use_adapter: false
+
+training:
+  all_epoch: 1
+  save_epoch: 1
+  check_epoch: 1
+  test_epoch: 1
+  batch_size: 5120
+  lr: 0.001
+  l2: 0
+  early_stop: 5
+  save_final_results: 1
+  load: 0
+
+testing:
+  test_num: 10
+  eval_batch_size: 5120
+
+eval:
+  topk: [5, 10]
+  metric: ["NDCG", "HR", "ALPHA_NDCG"]
+  main_metric: "NDCG@10"
+
+paths:
+  model_path: "../REC/model"
+  log_file: "./REC/logs/train.log"
+  model_dir: "./REC/checkpoints/SASRec/"
+  pred_dir: "./REC/predictions/"
+
+buffer: 1
+num_neg: 9
+dropout: 0.2
+test_all: 0
+optimizer: "Adam"
+num_workers: 1
+pin_memory: 0
+

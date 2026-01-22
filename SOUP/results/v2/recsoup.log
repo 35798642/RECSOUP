@@ -1,0 +1,84 @@
+2026-01-22 22:49:38,939 - INFO - Loaded RecSoup config:
+2026-01-22 22:49:38,939 - INFO - {'paths': {'result_dir': './results', 'data_dir': '../REC/corpus', 'rec_checkpoint_dir': '../REC/checkpoints', 'model_path': '../REC/model', 'log_file': './results/soup.log', 'pred_dir': './results/predictions'}, 'device': 'cpu', 'gpu': '0', 'experiment': {'version': 'v2', 'dataset': 'MovieLens_1M', 'num_devices': 1, 'train': True, 'evaluate': True, 'init_lambda': None, 'prune': False, 'self_cof': 0.5, 'prune_threshold': 0.9, 'router_hidden_layers': 1, 'num_steps': 20, 'batch_size': 5120, 'lr': 0.001, 'num_batch_per_ray': 1, 'alpha': 1, 'reg_lambda': 0, 'window_size': 1, 'seed': 42, 'save_interval': 5, 'num_evaluation_samples': 11}, 'rec': {'path': '../REC/corpus', 'dataset': 'MovieLens_1M', 'reader': 'SeqReader', 'regenerate': False, 'sep': '\t'}, 'data': {'dataset': 'MovieLens_1M', 'path': '../REC/corpus', 'sep': '\t', 'regenerate': False}, 'model': {'name': 'SASRec', 'emb_size': 64, 'num_layers': 1, 'num_heads': 4, 'hidden_size': 100, 'dropout': 0.2, 'final_act': 'tanh', 'history_max': 20, 'use_adapter': False}, 'training': {'all_epoch': 1, 'save_epoch': 1, 'check_epoch': 1, 'test_epoch': 1, 'batch_size': 5120, 'lr': 0.001, 'l2': 0, 'early_stop': 5, 'save_final_results': 1, 'load': 0}, 'testing': {'test_num': 10, 'eval_batch_size': 5120}, 'eval': {'topk': [5, 10], 'metric': ['NDCG', 'HR', 'ALPHA_NDCG'], 'main_metric': 'NDCG@10'}, 'accuracy_weight': 0.0, 'diversity_weight': 1.0, 'buffer': 1, 'num_neg': 9, 'dropout': 0.2, 'test_all': 0, 'optimizer': 'Adam', 'num_workers': 1, 'pin_memory': 0, 'train': 0}
+2026-01-22 22:49:38,967 - INFO - Corpus not found, rebuilding via REC reader
+2026-01-22 22:49:38,967 - INFO - Reading data from "../REC/corpus", dataset = "MovieLens_1M" 
+2026-01-22 22:51:58,843 - INFO - Counting dataset statistics...
+2026-01-22 22:51:59,016 - INFO - "# user": 6032, "# item": 3125, "# entry": 574197
+2026-01-22 22:51:59,665 - INFO - Appending history info...
+2026-01-22 22:52:10,707 - INFO - Loading pretrained model
+2026-01-22 22:52:10,862 - INFO - Loading finetuned models
+2026-01-22 22:52:11,036 - INFO - Building Pareto Weight-Ensembling MoE
+2026-01-22 22:52:39,698 - INFO - Starting RecSoup training...
+2026-01-22 22:53:01,683 - INFO - Starting RecSoup evaluation...
+2026-01-22 22:53:01,683 - INFO - Evaluating step 5
+2026-01-22 22:53:01,826 - INFO - Model loaded from merged checkpoint
+2026-01-22 22:53:01,826 - INFO - #params: 223560
+2026-01-22 22:53:24,653 - INFO - 
+Test After Training: (ALPHA_NDCG@5:0.1226,HR@5:0.0807,NDCG@5:0.0519,ALPHA_NDCG@10:0.1351,HR@10:0.1531,NDCG@10:0.0751)
+2026-01-22 22:53:24,779 - INFO - Model loaded from merged checkpoint
+2026-01-22 22:53:24,780 - INFO - #params: 223560
+2026-01-22 22:53:46,721 - INFO - 
+Test After Training: (ALPHA_NDCG@5:0.1228,HR@5:0.0939,NDCG@5:0.0610,ALPHA_NDCG@10:0.1355,HR@10:0.1743,NDCG@10:0.0867)
+2026-01-22 22:53:46,786 - INFO - Model loaded from merged checkpoint
+2026-01-22 22:53:46,787 - INFO - #params: 223560
+2026-01-22 22:54:02,661 - INFO - 
+Test After Training: (ALPHA_NDCG@5:0.1228,HR@5:0.1113,NDCG@5:0.0722,ALPHA_NDCG@10:0.1356,HR@10:0.1962,NDCG@10:0.0993)
+2026-01-22 22:54:02,782 - INFO - Model loaded from merged checkpoint
+2026-01-22 22:54:02,782 - INFO - #params: 223560
+2026-01-22 22:54:21,643 - INFO - 
+Test After Training: (ALPHA_NDCG@5:0.1225,HR@5:0.1305,NDCG@5:0.0845,ALPHA_NDCG@10:0.1354,HR@10:0.2251,NDCG@10:0.1147)
+2026-01-22 22:54:21,711 - INFO - Model loaded from merged checkpoint
+2026-01-22 22:54:21,712 - INFO - #params: 223560
+2026-01-22 22:54:30,363 - INFO - 
+Test After Training: (ALPHA_NDCG@5:0.1214,HR@5:0.1583,NDCG@5:0.1045,ALPHA_NDCG@10:0.1344,HR@10:0.2648,NDCG@10:0.1386)
+2026-01-22 22:54:30,422 - INFO - Model loaded from merged checkpoint
+2026-01-22 22:54:30,422 - INFO - #params: 223560
+2026-01-22 22:54:39,781 - INFO - 
+Test After Training: (ALPHA_NDCG@5:0.1186,HR@5:0.2074,NDCG@5:0.1373,ALPHA_NDCG@10:0.1324,HR@10:0.3208,NDCG@10:0.1737)
+2026-01-22 22:54:39,906 - INFO - Model loaded from merged checkpoint
+2026-01-22 22:54:39,906 - INFO - #params: 223560
+2026-01-22 22:54:55,497 - INFO - 
+Test After Training: (ALPHA_NDCG@5:0.1134,HR@5:0.2669,NDCG@5:0.1800,ALPHA_NDCG@10:0.1281,HR@10:0.4043,NDCG@10:0.2240)
+2026-01-22 22:54:55,626 - INFO - Model loaded from merged checkpoint
+2026-01-22 22:54:55,626 - INFO - #params: 223560
+2026-01-22 22:55:10,786 - INFO - 
+Test After Training: (ALPHA_NDCG@5:0.1048,HR@5:0.3455,NDCG@5:0.2342,ALPHA_NDCG@10:0.1195,HR@10:0.5010,NDCG@10:0.2842)
+2026-01-22 22:55:10,892 - INFO - Model loaded from merged checkpoint
+2026-01-22 22:55:10,892 - INFO - #params: 223560
+2026-01-22 22:55:31,328 - INFO - 
+Test After Training: (ALPHA_NDCG@5:0.0928,HR@5:0.4036,NDCG@5:0.2813,ALPHA_NDCG@10:0.1074,HR@10:0.5654,NDCG@10:0.3336)
+2026-01-22 22:55:31,464 - INFO - Model loaded from merged checkpoint
+2026-01-22 22:55:31,465 - INFO - #params: 223560
+2026-01-22 22:55:52,949 - INFO - 
+Test After Training: (ALPHA_NDCG@5:0.0812,HR@5:0.4454,NDCG@5:0.3140,ALPHA_NDCG@10:0.0950,HR@10:0.6051,NDCG@10:0.3654)
+2026-01-22 22:55:53,091 - INFO - Model loaded from merged checkpoint
+2026-01-22 22:55:53,092 - INFO - #params: 223560
+2026-01-22 22:56:15,056 - INFO - 
+Test After Training: (ALPHA_NDCG@5:0.0728,HR@5:0.4541,NDCG@5:0.3248,ALPHA_NDCG@10:0.0851,HR@10:0.6145,NDCG@10:0.3767)
+2026-01-22 22:56:15,123 - INFO - Finished evaluation for step 5
+2026-01-22 22:56:15,123 - INFO -     step  ray_0  ray_1  α-NDCG@5    HR@5  NDCG@5  α-NDCG@10   HR@10  NDCG@10                             routing_weights
+0      5    0.0    1.0    0.1226  0.0807  0.0519     0.1351  0.1531   0.0751  [0.008500000461935997, 1.0090999603271484]
+1      5    0.1    0.9    0.1228  0.0939  0.0610     0.1355  0.1743   0.0867   [0.10859999805688858, 0.9090999960899353]
+2      5    0.2    0.8    0.1228  0.1113  0.0722     0.1356  0.1962   0.0993    [0.2087000012397766, 0.8090999722480774]
+3      5    0.3    0.7    0.1225  0.1305  0.0845     0.1354  0.2251   0.1147   [0.30869999527931213, 0.7092000246047974]
+4      5    0.4    0.6    0.1214  0.1583  0.1045     0.1344  0.2648   0.1386   [0.40880000591278076, 0.6092000007629395]
+5      5    0.5    0.5    0.1186  0.2074  0.1373     0.1324  0.3208   0.1737     [0.508899986743927, 0.5092999935150146]
+6      5    0.6    0.4    0.1134  0.2669  0.1800     0.1281  0.4043   0.2240    [0.6089000105857849, 0.4092999994754791]
+7      5    0.7    0.3    0.1048  0.3455  0.2342     0.1195  0.5010   0.2842    [0.7089999914169312, 0.3093999922275543]
+8      5    0.8    0.2    0.0928  0.4036  0.2813     0.1074  0.5654   0.3336    [0.8090999722480774, 0.2093999981880188]
+9      5    0.9    0.1    0.0812  0.4454  0.3140     0.0950  0.6051   0.3654   [0.9090999960899353, 0.10949999839067459]
+10     5    1.0    0.0    0.0728  0.4541  0.3248     0.0851  0.6145   0.3767  [1.0091999769210815, 0.009499999694526196]
+2026-01-22 22:56:15,272 - INFO - Evaluating step 10
+2026-01-22 22:56:15,472 - INFO - Model loaded from merged checkpoint
+2026-01-22 22:56:15,472 - INFO - #params: 223560
+2026-01-22 22:56:32,162 - INFO - Loaded RecSoup config:
+2026-01-22 22:56:32,162 - INFO - {'paths': {'result_dir': './results', 'data_dir': '../REC/corpus', 'rec_checkpoint_dir': '../REC/checkpoints', 'model_path': '../REC/model', 'log_file': './results/soup.log', 'pred_dir': './results/predictions'}, 'device': 'cpu', 'gpu': '0', 'experiment': {'version': 'v2', 'dataset': 'MovieLens_1M', 'num_devices': 1, 'train': True, 'evaluate': True, 'init_lambda': None, 'prune': False, 'self_cof': 0.5, 'prune_threshold': 0.9, 'router_hidden_layers': 1, 'num_steps': 20, 'batch_size': 5120, 'lr': 0.001, 'num_batch_per_ray': 1, 'alpha': 1, 'reg_lambda': 0, 'window_size': 1, 'seed': 42, 'save_interval': 5, 'num_evaluation_samples': 11}, 'rec': {'path': '../REC/corpus', 'dataset': 'MovieLens_1M', 'reader': 'SeqReader', 'regenerate': False, 'sep': '\t'}, 'data': {'dataset': 'MovieLens_1M', 'path': '../REC/corpus', 'sep': '\t', 'regenerate': False}, 'model': {'name': 'SASRec', 'emb_size': 64, 'num_layers': 1, 'num_heads': 4, 'hidden_size': 100, 'dropout': 0.2, 'final_act': 'tanh', 'history_max': 20, 'use_adapter': False}, 'training': {'all_epoch': 1, 'save_epoch': 1, 'check_epoch': 1, 'test_epoch': 1, 'batch_size': 5120, 'lr': 0.001, 'l2': 0, 'early_stop': 5, 'save_final_results': 1, 'load': 0}, 'testing': {'test_num': 10, 'eval_batch_size': 5120}, 'eval': {'topk': [5, 10], 'metric': ['NDCG', 'HR', 'ALPHA_NDCG'], 'main_metric': 'NDCG@10'}, 'accuracy_weight': 0.0, 'diversity_weight': 1.0, 'buffer': 1, 'num_neg': 9, 'dropout': 0.2, 'test_all': 0, 'optimizer': 'Adam', 'num_workers': 1, 'pin_memory': 0, 'train': 0}
+2026-01-22 22:56:32,172 - INFO - Load corpus from ../REC/corpus/MovieLens_1M/SeqReader.pkl
+2026-01-22 22:56:50,380 - INFO - Loading pretrained model
+2026-01-22 22:56:50,574 - INFO - Loading finetuned models
+2026-01-22 22:56:50,737 - INFO - Building Pareto Weight-Ensembling MoE
+2026-01-22 22:57:16,595 - INFO - Starting RecSoup training...
+2026-01-22 22:57:34,397 - INFO - Starting RecSoup evaluation...
+2026-01-22 22:57:34,398 - INFO - Evaluating step 5
+2026-01-22 22:57:34,549 - INFO - Model loaded from merged checkpoint
+2026-01-22 22:57:34,549 - INFO - #params: 223560
