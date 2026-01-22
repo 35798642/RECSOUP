@@ -1,13 +1,8 @@
 """
-References:
-    Anke Tang, Li Shen, Yong Luo, Shiwei Liu, Han Hu, and Bo Du. 2024. Towards
-    efficient pareto set approximation via mixture of experts based model fusion.
-    arXiv preprint arXiv:2406.09770 (2024)
-Note:
-    this is adapted from 
-    https://github.com/tanganke/weight-ensembling_MoE/blob/3cbd327cb28c499065f83387472a79829a2e5fee/src/module/dict_moe.py
-    https://github.com/tanganke/pareto_set_learning/blob/main/src/module/dict_moe.py
+This file contains code adapted from a prior open-source implementation.
 
+The original source and license will be properly acknowledged in the
+camera-ready version.
 """
 
 import logging

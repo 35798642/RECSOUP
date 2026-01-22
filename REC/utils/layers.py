@@ -1,19 +1,9 @@
 # -*- coding: UTF-8 -*-
 """
-This file contains code adapted from:
+This file contains code adapted from a prior open-source implementation.
 
-Paragon: Parameter Generation for Controllable Multi-Task Recommendation
-Chenglei Shen, Jiahao Zhao, Xiao Zhang, Weijie Yu, Ming He, Jianping Fan
-Proceedings of the 19th ACM Conference on Recommender Systems (RecSys), 2025.
-
-Original source:
- 	https://github.com/bubble65/Paragon.git
-
-License:
-<original license, e.g., MIT License>
-
-Modifications:
-- Refactored for experimental comparison with model merging methods.
+The original source and license will be properly acknowledged in the
+camera-ready version.
 """
 import torch
 import torch.nn as nn
@@ -79,7 +69,6 @@ class MultiHeadAttention(nn.Module):
 
 class AttLayer(nn.Module):
 	"""Calculate the attention signal(weight) according the input tensor.
-	Reference: RecBole https://github.com/RUCAIBox/RecBole/blob/master/recbole/model/layers.py#L236
 	Args:
 		infeatures (torch.FloatTensor): An input tensor with shape of[batch_size, XXX, embed_dim] with at least 3 dimensions.
 
@@ -134,9 +123,6 @@ class TransformerLayer(nn.Module):
 
 
 class MultiHeadTargetAttention(nn.Module):
-    '''
-    Reference: FuxiCTR, https://github.com/reczoo/FuxiCTR/blob/v2.0.1/fuxictr/pytorch/layers/attentions/target_attention.py
-    '''
     def __init__(self,
                  input_dim=64,
                  attention_dim=64,
@@ -191,9 +177,6 @@ class MultiHeadTargetAttention(nn.Module):
         return output
 
 class ScaledDotProductAttention(nn.Module):
-    """ Scaled Dot-Product Attention 
-        Ref: https://zhuanlan.zhihu.com/p/47812375
-    """
     def __init__(self, dropout_rate=0.):
         super(ScaledDotProductAttention, self).__init__()
         self.dropout = nn.Dropout(dropout_rate) if dropout_rate > 0 else None
@@ -214,10 +197,6 @@ class ScaledDotProductAttention(nn.Module):
 
 
 class MLP_Block(nn.Module):
-	'''
-	Reference: FuxiCTR
-	https://github.com/reczoo/FuxiCTR/blob/v2.0.1/fuxictr/pytorch/layers/blocks/mlp_block.py
-	'''
 	def __init__(self, input_dim, hidden_units=[], 
 				 hidden_activations="ReLU", output_dim=None, output_activation=None, 
 				 dropout_rates=0.0, batch_norm=False, 
@@ -266,11 +245,7 @@ class Dice(nn.Module):
 		- 3 dims: [batch_size, num_features, embedding_size(features)]
 
 	Output shape:
-		- Same shape as input.
-
-	References
-		- [Zhou G, Zhu X, Song C, et al. Deep interest network for click-through rate prediction[C]//Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining. ACM, 2018: 1059-1068.](https://arxiv.org/pdf/1706.06978.pdf)
-		- https://github.com/zhougr1993/DeepInterestNetwork, https://github.com/fanoping/DIN-pytorch
+		- Same shape as input
 	"""
 
 	def __init__(self, emb_size, dim=2, epsilon=1e-8, device='cpu'):

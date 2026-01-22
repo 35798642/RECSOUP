@@ -1,19 +1,9 @@
 # -*- coding: UTF-8 -*-
 """
-This file contains code adapted from:
+This file contains code adapted from a prior open-source implementation.
 
-Paragon: Parameter Generation for Controllable Multi-Task Recommendation
-Chenglei Shen, Jiahao Zhao, Xiao Zhang, Weijie Yu, Ming He, Jianping Fan
-Proceedings of the 19th ACM Conference on Recommender Systems (RecSys), 2025.
-
-Original source:
- 	https://github.com/bubble65/Paragon.git
-
-License:
-<original license, e.g., MIT License>
-
-Modifications:
-- Refactored for experimental comparison with model merging methods.
+The original source and license will be properly acknowledged in the
+camera-ready version.
 """
 import os
 import random
@@ -141,10 +131,7 @@ def format_metric(result_dict: Dict[str, Any]) -> str:
             name = f"{metric}@{topk}"
             m = result_dict[name] if topk != 'All' else result_dict[metric]
             if isinstance(m, (float, np.floating)):
-                if metric.upper() == "FAIRNESS":
-                    format_str.append(f"{name}:{m:.2e}")  # Scientific notation for fairness
-                else:
-                    format_str.append(f"{name}:{m:.4f}")
+                format_str.append(f"{name}:{m:.4f}")
             elif isinstance(m, (int, np.integer)):
                 format_str.append(f"{name}:{m}")
     return ','.join(format_str)

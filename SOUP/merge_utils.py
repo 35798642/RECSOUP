@@ -1,13 +1,12 @@
 """
-Utility functions for model merging.
-Original source:
-    https://github.com/prateeky2806/ties-merging.git
+This file contains code adapted from a prior open-source implementation.
+
+The original source and license will be properly acknowledged in the
+camera-ready version.
 Note:
     -new pruning method is added: topk_NFS_mask_preserve_normfrac
 """
 
-import sys, os
-import logging
 import time
 import copy
 import torch

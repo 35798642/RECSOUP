@@ -1,17 +1,10 @@
 # -*- coding: UTF-8 -*-
 
 """
-This file contains code adapted from:
+This file contains code adapted from a prior open-source implementation.
 
-Paragon: Parameter Generation for Controllable Multi-Task Recommendation
-Chenglei Shen, Jiahao Zhao, Xiao Zhang, Weijie Yu, Ming He, Jianping Fan
-Proceedings of the 19th ACM Conference on Recommender Systems (RecSys), 2025.
-
-Original source:
- 	https://github.com/bubble65/Paragon.git
-
-License:
-<original license, e.g., MIT License>
+The original source and license will be properly acknowledged in the
+camera-ready version.
 
 Modifications:
 - Refactored for experimental comparison with model merging methods.
@@ -201,10 +194,7 @@ class GeneralModel(BaseModel):
 	
 	def loss(self, out_dict: dict) -> torch.Tensor:
 		"""
-		BPR ranking loss with optimization on multiple negative samples (a little different now to follow the paper ↓)
-		"Recurrent neural networks with top-k gains for session-based recommendations"
-		:param out_dict: contain prediction with [batch_size, -1], the first column for positive, the rest for negative
-		:return:
+		BPR ranking loss with optimization on multiple negative samples
 		"""
 		predictions = out_dict['prediction']
 		pos_pred, neg_pred = predictions[:, 0], predictions[:, 1:]

@@ -1,19 +1,9 @@
 # -*- coding: UTF-8 -*-
 """
-This file contains code adapted from:
+This file contains code adapted from a prior open-source implementation.
 
-Paragon: Parameter Generation for Controllable Multi-Task Recommendation
-Chenglei Shen, Jiahao Zhao, Xiao Zhang, Weijie Yu, Ming He, Jianping Fan
-Proceedings of the 19th ACM Conference on Recommender Systems (RecSys), 2025.
-
-Original source:
- 	https://github.com/bubble65/Paragon.git
-
-License:
-<original license, e.g., MIT License>
-
-Modifications:
-- Refactored for experimental comparison with model merging methods.
+The original source and license will be properly acknowledged in the
+camera-ready version.
 """
 import os
 import gc

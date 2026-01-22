@@ -1,16 +1,10 @@
 # -*- coding: UTF-8 -*-
-
-""" SASRec
-Reference:
-	"Self-attentive Sequential Recommendation"
-	Kang et al., IEEE'2018.
-Note:
-	When incorporating position embedding, the position index start from the most recent interaction.
-
-	Original code source:
- 	https://github.com/bubble65/Paragon.git
 """
+This file contains code adapted from a prior open-source implementation.
 
+The original source and license will be properly acknowledged in the
+camera-ready version.
+"""
 import time
 import torch
 import torch.nn as nn

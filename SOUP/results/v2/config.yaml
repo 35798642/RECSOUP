@@ -1,0 +1,85 @@
+!!python/object:__main__.ConfigObject
+accuracy_weight: 0.0
+buffer: 1
+data: !!python/object:__main__.ConfigObject
+  dataset: MovieLens_1M
+  path: ../REC/corpus
+  regenerate: false
+  sep: "\t"
+device: cpu
+diversity_weight: 1.0
+dropout: 0.2
+eval: !!python/object:__main__.ConfigObject
+  main_metric: NDCG@10
+  metric:
+  - NDCG
+  - HR
+  - ALPHA_NDCG
+  topk:
+  - 5
+  - 10
+experiment: !!python/object:__main__.ConfigObject
+  alpha: 1
+  batch_size: 5120
+  dataset: MovieLens_1M
+  evaluate: true
+  init_lambda: null
+  lr: 0.001
+  num_batch_per_ray: 1
+  num_devices: 1
+  num_evaluation_samples: 11
+  num_steps: 20
+  prune: false
+  prune_threshold: 0.9
+  reg_lambda: 0
+  router_hidden_layers: 1
+  save_interval: 5
+  seed: 42
+  self_cof: 0.5
+  train: true
+  version: v2
+  window_size: 1
+gpu: '0'
+model: !!python/object:__main__.ConfigObject
+  dropout: 0.2
+  emb_size: 64
+  final_act: tanh
+  hidden_size: 100
+  history_max: 20
+  name: SASRec
+  num_heads: 4
+  num_layers: 1
+  use_adapter: false
+num_neg: 9
+num_workers: 1
+optimizer: Adam
+paths: !!python/object:__main__.ConfigObject
+  data_dir: ../REC/corpus
+  log_file: ./results/soup.log
+  model_path: ../REC/model
+  pred_dir: ./results/predictions
+  rec_checkpoint_dir: ../REC/checkpoints
+  result_dir: ./results
+pin_memory: 0
+rec: !!python/object:__main__.ConfigObject
+  dataset: MovieLens_1M
+  path: ../REC/corpus
+  reader: SeqReader
+  regenerate: false
+  sep: "\t"
+test_all: 0
+testing: !!python/object:__main__.ConfigObject
+  eval_batch_size: 5120
+  test_num: 10
+train: 0
+training: !!python/object:__main__.ConfigObject
+  all_epoch: 1
+  batch_size: 5120
+  check_epoch: 1
+  early_stop: 5
+  l2: 0
+  load: 0
+  lr: 0.001
+  save_epoch: 1
+  save_final_results: 1
+  test_epoch: 1
