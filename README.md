@@ -5,7 +5,7 @@
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/yourusername/RecSoup.git
+git clone ......
 cd RecSoup
 pip install -r requirements.txt
 ````
