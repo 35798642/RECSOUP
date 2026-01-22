@@ -49,3 +49,7 @@ python run_main.py
 ```bash
 python run_recsoup.py
 ```
+## Acknowledgement
+
+This project includes components adapted from open-source implementations released under permissive licenses (e.g., BSD 3-Clause, MIT).
+Details can be found in THIRD_PARTY_LICENSES.md.
