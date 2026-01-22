@@ -194,14 +194,16 @@ class RecSoupProgram:
         dataset = self.data_dict['train']
 
         for step_idx in tqdm(range(1, cfg.experiment.num_steps + 1)):
+            # generate preference rays
             rays = sample_preference_vectors(W, T, cfg.experiment.alpha, device)
             loss_matrix = []
             for i in range(W):
                 α = rays[i]
                 ParetoWeightEnsemblingModule.set_preference_vector(backbone, α)
                 batch_losses = torch.zeros(T).to(device)
+                # data loader
                 dl = DataLoader(dataset, batch_size=cfg.experiment.batch_size, shuffle=True,collate_fn=dataset.collate_batch)
-                 
+                # forward over num_batch_per_ray batches
                 for batch in itertools.islice(dl, cfg.experiment.num_batch_per_ray):
                     batch = batch_to_gpu(batch, device)
                     outputs = backbone(batch)
@@ -211,6 +213,7 @@ class RecSoupProgram:
                     batch_losses += torch.stack([acc_loss, div_loss])
                 loss_matrix.append(batch_losses / cfg.experiment.num_batch_per_ray)
             loss_matrix = torch.stack(loss_matrix)
+            # linearly combine losses
             total_loss = torch.mean(torch.sum(rays * loss_matrix, dim=1))
             optimizer.zero_grad()
             total_loss.backward()
@@ -220,7 +223,7 @@ class RecSoupProgram:
             if step_idx % cfg.experiment.save_interval == 0:
                 torch.save({"model": backbone}, os.path.join(self.result_dir, f"model_step={step_idx}.pt"))
                 pd.DataFrame(train_log).to_json(os.path.join(self.result_dir, "train_log.json"), orient="records", force_ascii=False)
-        # save current training config
+       
         with open(os.path.join(self.result_dir, "config.yaml"), "w") as f:
             yaml.dump(cfg, f)
 
@@ -250,7 +253,6 @@ class RecSoupProgram:
             )
             state = torch.load(ckpt_path, map_location=device)
 
-            # train 中是 {"model": backbone}
             if isinstance(state, dict) and "model" in state:
                 model = state["model"]
             else:
@@ -306,7 +308,6 @@ class RecSoupProgram:
                 results["α-NDCG@5"].append(float(alpha_ndcg5))
                 results["HR@5"].append(float(hr5))
                 results["NDCG@5"].append(float(ndcg5))
-
                 results["α-NDCG@10"].append(float(alpha_ndcg10))
                 results["HR@10"].append(float(hr10))
                 results["NDCG@10"].append(float(ndcg10))
