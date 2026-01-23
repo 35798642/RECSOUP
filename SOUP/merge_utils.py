@@ -201,7 +201,7 @@ def topk_NFS_mask_preserve_normfrac(
     return_mask=False
 ):
     """
-    Top-K Neuron Fidelity Score (NFS) pruning method.
+    Pruning method.
     Args:
         T (torch.Tensor): Input tensor of shape (N, D) where N is the number of rows and D is the number of columns.
         normfrac (float): Fraction of the norm to preserve for each row (between 0 and 1).
