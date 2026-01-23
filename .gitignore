@@ -1,3 +1,6 @@
 REC/corpus/
 *.pkl
 *.csv
+
+REC/checkpoints/
+SOUP/results/
