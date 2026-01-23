@@ -38,7 +38,7 @@ class BaseRunner(object):
 		:return: a result dict, the keys are metric@topk
 		"""
 		evaluations = dict()
-		# ↓ As we only have one positive sample, comparing with the first item will be more efficient. 
+		# ↓ only one positive sample, comparing with the first item. 
 		gt_rank = (predictions >= predictions[:,0].reshape(-1,1)).sum(axis=-1)
 		for k in topk:
 			hit = (gt_rank <= k)
