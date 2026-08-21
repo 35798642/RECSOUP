@@ -1,10 +1,5 @@
 # -*- coding: UTF-8 -*-
-"""
-This file contains code adapted from a prior open-source implementation.
 
-The original source and license will be properly acknowledged in the
-camera-ready version.
-"""
 import torch
 import torch.nn as nn
 import numpy as np

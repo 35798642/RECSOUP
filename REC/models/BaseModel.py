@@ -1,15 +1,5 @@
 # -*- coding: UTF-8 -*-
 
-"""
-This file contains code adapted from a prior open-source implementation.
-
-The original source and license will be properly acknowledged in the
-camera-ready version.
-
-Modifications:
-- Refactored for experimental comparison with model merging methods.
-"""
-
 import os
 import torch
 import logging

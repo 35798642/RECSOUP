@@ -1,11 +1,3 @@
-"""
-This file contains code adapted from a prior open-source implementation.
-
-The original source and license will be properly acknowledged in the
-camera-ready version.
-Note:
-    -new pruning method is added: topk_NFS_mask_preserve_normfrac
-"""
 
 import time
 import copy
